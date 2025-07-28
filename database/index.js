@@ -1,7 +1,10 @@
 import mongoose from "mongoose"
 import { db } from "../config.js"
+import dotenv from 'dotenv';
+dotenv.config();
 
-const dbURI = `mongodb://${db.user}:${db.password}@${db.host}:${db.port}/${db.name}`
+
+const dbURI = process.env.DB_URI;
 
 mongoose
   .connect(dbURI)
